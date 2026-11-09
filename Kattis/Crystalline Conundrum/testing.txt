@@ -1,0 +1,84 @@
+Base State:
+
+? -> from right OR from bottom OR root
+. -> empty
+
+Mixed States:
+
+| -> from bottom OR root
+- -> from right OR root
+x -> from right OR bottom
+
+Low States:
+
+> -> from right
+v -> from bottom
+r -> root
+T -> top root (only goes up)
+L -> left root (only goes left)
+
+Case:
+
+...??
+.??..
+...?.
+????.
+.??..
+
+Go Down (Testing if can't come from down):
+
+...--
+.--..
+...?.
+-??-.
+.--..
+
+Go Right (Testing if can't come from right):
+
+...-r
+.-r..
+...|.
+-??r.
+.-r..
+
+Go Down Definite Root:
+
+...-r
+.-r..
+...|.
+-??r.
+.-L..
+
+Backpropogate Definite Root Up:
+
+...-r
+.-r..
+...|.
+-?-r.
+.-L..
+
+Go Right Definite Root:
+
+...-r
+.-r..
+...|.
+-?-r.
+.-L..
+
+Backpropogate Definite Root Left:
+
+...-r
+.-r..
+...|.
+-?-r.
+.-L..
+
+Final (Count Roots):
+
+...-r
+.-r..
+...|.
+-?-r.
+.-L..
+
+x = 4

@@ -1,0 +1,65 @@
+Solution: Iteratively collapse the states of the problem
+
+Not all ?,|,- need to be collapsed because a remaining ?,|,- at the end of the iteration
+means that it could guarenteed have grown from some direction
+
+Best way to implement is a boolean array of [could_be_right, could_be_bottom, could_be_root]
+where . = [False, False, False] and ? = [True, True, True]
+
+Base State:
+
+? -> from right OR from bottom OR root
+. -> empty
+
+Mixed States:
+
+| -> from bottom OR root
+- -> from right OR root
+x -> from right OR bottom
+
+Low States:
+
+> -> from right
+v -> from bottom
+r -> root
+
+Test Case:
+
+?.?.?
+?.?.?
+.....
+?.?.?
+?.?.?
+?.?.?
+
+Go Down (Testing if can't come from down, if not, all things downstream also can't come from down):
+
+?.?.?
+-.-.-
+.....
+-.-.-
+-.-.-
+-.-.-
+
+Go Right (Testing if can't come from right, if not, all things downstram also can't come from down):
+
+|.|.|
+r.r.r
+.....
+r.r.r
+r.r.r
+r.r.r
+
+// Grow Up
+// Grow Right
+
+Final (Count Roots):
+
+|.|.|
+r.r.r
+.....
+r.r.r
+r.r.r
+r.r.r
+
+x = 12
